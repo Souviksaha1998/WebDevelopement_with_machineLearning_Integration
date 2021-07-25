@@ -16,7 +16,7 @@ def home(request):
         saltlake = request.POST.get('saltlake')
         prediction = pickle.load(open('housePrice.pkl', 'rb'))
         try:
-            new_predict=prediction.predict([[room, bathroom, Balcony, SquareFt, floor, kolkata, newtown, saltlake]])
+            new_predict=round(prediction.predict([[room, bathroom, Balcony, SquareFt, floor, kolkata, newtown, saltlake]])[0],2)
         except Exception as e:
             print(e)
        
